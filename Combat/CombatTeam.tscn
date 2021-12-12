@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Combat/CombatTeam.gd" type="Script" id=1]
+[ext_resource path="res://Combat/Combatslot.gd" type="Script" id=2]
+
+[node name="CombatTeam" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Slot1" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Slot2" type="Node2D" parent="."]
+script = ExtResource( 2 )
+next_slot_path = NodePath("../Slot1")
+
+[node name="Slot3" type="Node2D" parent="."]
+script = ExtResource( 2 )
+next_slot_path = NodePath("../Slot2")
+
+[node name="Slot4" type="Node2D" parent="."]
+script = ExtResource( 2 )
+next_slot_path = NodePath("../Slot3")
+
+[node name="Slot5" type="Node2D" parent="."]
+script = ExtResource( 2 )
+next_slot_path = NodePath("../Slot4")
