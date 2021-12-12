@@ -7,6 +7,8 @@ const MOVE_SPEED = 8.0
 # --------------
 onready var lbl_hp = $HpDisplay/LblHpValue
 onready var lbl_atk = $AtkDisplay/LblAtkValue
+onready var pet_sprite = $PetSprite
+onready var anim = $AnimationPlayer
 
 # -------------
 # - Pet stats -
@@ -40,7 +42,7 @@ func _process(delta):
 
 # Called whenever the pet drops below 1hp
 func pet_killed():
-	pass
+	anim.play("dead")
 
 # Called before attack is processed
 func before_attack():
@@ -86,4 +88,9 @@ func get_hp():
 # For now it's just a simple HP check
 func is_alive():
 	return hp > 0
-	
+
+func get_sprite():
+	return pet_sprite
+
+func get_anim():
+	return anim

@@ -24,5 +24,6 @@ func _ready():
 # -------------
 func _process(delta):
 	# TEMP: press Space to advance 1 round, no animations or nothing just raw calculations
-	if (Input.is_action_just_pressed("next_turn")):
+	# Don't press during turn execution - currently no good coroutine management for this
+	if (Input.is_action_just_pressed("next_turn") && !current_combat.is_turn_ongoing()):
 		current_combat.process_turn()

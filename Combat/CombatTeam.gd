@@ -39,6 +39,13 @@ func _ready():
 	for slot in slots:
 		slot.set_pet(trollface.instance())
 	slots[1].set_pet(fuuu.instance())
+	
+	# Flip sprites based on facing
+	# Should this code be deferred to Pet.gd itself? probably fine for now lol
+	# TODO: swapping position of HP and ATK icons would b cool too
+	if (facing == 1):
+		for slot in slots:
+			slot.get_pet().get_sprite().scale.x = -1
 
 # ------------
 # - Function -
